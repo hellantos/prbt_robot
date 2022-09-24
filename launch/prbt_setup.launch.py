@@ -14,7 +14,7 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     slave_eds_path = os.path.join(
-                    get_package_share_directory("prbt_robot"), "config", "prbt_lifecycle", "prbt_0_1.dcf"
+                    get_package_share_directory("prbt_robot"), "config", "prbt", "prbt_0_1.dcf"
                 )
 
     for i in range(1,7):
@@ -38,7 +38,7 @@ def generate_launch_description():
     master_bin_path = os.path.join(
                 get_package_share_directory("prbt_robot"),
                 "config",
-                "prbt_lifecycle",
+                "prbt",
                 "master.bin",
             )     
     if not os.path.exists(master_bin_path):
@@ -47,21 +47,21 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             [
                 os.path.join(get_package_share_directory("canopen_core"), "launch"),
-                "/canopen_lifecycle.launch.py",
+                "/canopen.launch.py",
             ]
         ),
         launch_arguments={
             "master_config": os.path.join(
                 get_package_share_directory("prbt_robot"),
                 "config",
-                "prbt_lifecycle",
+                "prbt",
                 "master.dcf",
             ),
             "master_bin": master_bin_path,
             "bus_config": os.path.join(
                 get_package_share_directory("prbt_robot"),
                 "config",
-                "prbt_lifecycle",
+                "prbt",
                 "bus.yml",
             ),
             "can_interface_name": "vcan0",
