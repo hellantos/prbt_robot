@@ -23,7 +23,7 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(
                 [
                     os.path.join(
-                        get_package_share_directory("canopen_mock_slave"), "launch"
+                        get_package_share_directory("canopen_fake_slaves"), "launch"
                     ),
                     "/cia402_slave.launch.py",
                 ]
@@ -64,7 +64,7 @@ def generate_launch_description():
                 "prbt",
                 "bus.yml",
             ),
-            "can_interface_name": "vcan0",
+            "can_interface_name_name": "vcan0",
         }.items(),
     )
 
@@ -98,13 +98,13 @@ def generate_launch_description():
         executable="joint_state_publisher",
         parameters=[{
             "source_list": [
-                "/prbt_joint_1/joint_state",
-                "/prbt_joint_2/joint_state",
-                "/prbt_joint_3/joint_state",
-                "/prbt_joint_4/joint_state",
-                "/prbt_joint_5/joint_state",
-                "/prbt_joint_6/joint_state",
-                "/prbt_joint_7/joint_state",
+                "/prbt_joint_1/joint_states",
+                "/prbt_joint_2/joint_states",
+                "/prbt_joint_3/joint_states",
+                "/prbt_joint_4/joint_states",
+                "/prbt_joint_5/joint_states",
+                "/prbt_joint_6/joint_states",
+                "/prbt_joint_7/joint_states",
                 ],
             "rate": 10
         }]

@@ -1,21 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
-<!--
-Copyright (c) 2018 Pilz GmbH & Co. KG
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
-
+<?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="prbt" params="prefix">
 
@@ -33,10 +16,10 @@ limitations under the License.
 
     <!-- robot foot link -->
     <link name="${prefix}base_link">
-        <inertial>
-          <mass value="2.4"/>
-          <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
-        </inertial>
+      <inertial>
+        <mass value="2.4"/>
+        <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+      </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -112,7 +95,7 @@ limitations under the License.
       <inertial>
         <mass value="1.7"/>
         <origin xyz="0 0.162 0.134" />
-        <inertia ixx="3.58e-2"  ixy="0"  ixz="0" iyy="3.22e-3" iyz="-1.45e-3" izz="3.66e-2" />
+        <inertia ixx="3.58e-2" ixy="0" ixz="0" iyy="3.22e-3" iyz="-1.45e-3" izz="3.66e-2" />
       </inertial>
 
       <visual name="first">
@@ -370,10 +353,10 @@ limitations under the License.
     </transmission>
 
     <gazebo>
-      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" >
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
         <robotNamespace>prbt</robotNamespace>
         <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-        <legacyModeNS>false</legacyModeNS> <!-- Only used from ros-kinetic-gazebo-ros-control 2.5.18 -->
+        <legacyModeNS>false</legacyModeNS>        <!-- Only used from ros-kinetic-gazebo-ros-control 2.5.18 -->
       </plugin>
     </gazebo>
 
@@ -383,9 +366,9 @@ limitations under the License.
 
     <gazebo>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	<updateRate>100.0</updateRate>
-	<topicName>prbt/ft_sensor/joint_1</topicName>
-	<jointName>${prefix}joint_1</jointName>
+        <updateRate>100.0</updateRate>
+        <topicName>prbt/ft_sensor/joint_1</topicName>
+        <jointName>${prefix}joint_1</jointName>
       </plugin>
     </gazebo>
 
@@ -395,9 +378,9 @@ limitations under the License.
 
     <gazebo>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	<updateRate>100.0</updateRate>
-	<topicName>prbt/ft_sensor/joint_2</topicName>
-	<jointName>${prefix}joint_2</jointName>
+        <updateRate>100.0</updateRate>
+        <topicName>prbt/ft_sensor/joint_2</topicName>
+        <jointName>${prefix}joint_2</jointName>
       </plugin>
     </gazebo>
 
@@ -407,9 +390,9 @@ limitations under the License.
 
     <gazebo>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	<updateRate>100.0</updateRate>
-	<topicName>prbt/ft_sensor/joint_3</topicName>
-	<jointName>${prefix}joint_3</jointName>
+        <updateRate>100.0</updateRate>
+        <topicName>prbt/ft_sensor/joint_3</topicName>
+        <jointName>${prefix}joint_3</jointName>
       </plugin>
     </gazebo>
 
@@ -419,9 +402,9 @@ limitations under the License.
 
     <gazebo>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	<updateRate>100.0</updateRate>
-	<topicName>prbt/ft_sensor/joint_4</topicName>
-	<jointName>${prefix}joint_4</jointName>
+        <updateRate>100.0</updateRate>
+        <topicName>prbt/ft_sensor/joint_4</topicName>
+        <jointName>${prefix}joint_4</jointName>
       </plugin>
     </gazebo>
 
@@ -431,9 +414,9 @@ limitations under the License.
 
     <gazebo>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	<updateRate>100.0</updateRate>
-	<topicName>prbt/ft_sensor/joint_5</topicName>
-	<jointName>${prefix}joint_5</jointName>
+        <updateRate>100.0</updateRate>
+        <topicName>prbt/ft_sensor/joint_5</topicName>
+        <jointName>${prefix}joint_5</jointName>
       </plugin>
     </gazebo>
 
@@ -443,9 +426,9 @@ limitations under the License.
 
     <gazebo>
       <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	<updateRate>100.0</updateRate>
-	<topicName>prbt/ft_sensor/joint_6</topicName>
-	<jointName>${prefix}joint_6</jointName>
+        <updateRate>100.0</updateRate>
+        <topicName>prbt/ft_sensor/joint_6</topicName>
+        <jointName>${prefix}joint_6</jointName>
       </plugin>
     </gazebo>
 
