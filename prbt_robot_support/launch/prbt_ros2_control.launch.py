@@ -174,7 +174,7 @@ def launch_setup(context, *args, **kwargs):
 
     # hardcoded slave configuration form test package
     slave_config = PathJoinSubstitution(
-        [FindPackageShare("prbt_robot"), "config/prbt", "prbt_0_1.dcf"]
+        [FindPackageShare("prbt_robot_support"), "config/prbt", "prbt_0_1.dcf"]
     )
 
     slave_launch = PathJoinSubstitution(
@@ -272,7 +272,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "description_package",
             description="Package where urdf file is stored.",
-            default_value="prbt_robot"
+            default_value="prbt_robot_support"
         )
     )
     declared_arguments.append(
@@ -285,7 +285,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "ros2_control_config_package",
-            default_value="prbt_robot",
+            default_value="prbt_robot_support",
             description="Path to ros2_control configuration.",
         )
     )
@@ -306,7 +306,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "bus_config_package",
-            default_value="prbt_robot",
+            default_value="prbt_robot_support",
             description="Path to bus configuration.",
         )
     )
@@ -327,7 +327,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "master_config_package",
-            default_value="prbt_robot",
+            default_value="prbt_robot_support",
             description="Path to master configuration file (*.dcf)",
         )
     )

@@ -1,14 +1,14 @@
 master:
   node_id: 1
-  driver: "ros2_canopen::MasterDriver"
-  package: "canopen_master_driver"
-  sync_period: 30000
+  driver: "ros2_canopen::LifecycleMasterNode"
+  package: "canopen_core"
+  sync_period: 20000
 
 prbt_joint_1:
   node_id: 3
   dcf: "prbt_0_1.dcf"
-  dcf_path: "install/prbt_robot/share/prbt_robot/config/prbt"
-  driver: "ros2_canopen::Cia402Driver"
+  dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt_lifecycle"
+  driver: "ros2_canopen::LifecycleMotionControllerDriver"
   package: "canopen_402_driver"
   period: 20
   enable_lazy_load: false
@@ -52,15 +52,15 @@ prbt_joint_1:
 prbt_joint_2:
   node_id: 4
   dcf: "prbt_0_1.dcf"
-  dcf_path: "install/prbt_robot/share/prbt_robot/config/prbt"
-  driver: "ros2_canopen::Cia402Driver"
+  dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt_lifecycle"
+  driver: "ros2_canopen::LifecycleMotionControllerDriver"
   package: "canopen_402_driver"
   period: 20
   enable_lazy_load: false
   sdo:
     - {index: 0x2060, sub_index: 2, value: 1} # Request brake test
     - {index: 0x6081, sub_index: 0, value: 1000}
-    - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x6083, sub_index: 0, value: 200}
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
       enabled: true
@@ -98,15 +98,15 @@ prbt_joint_2:
 prbt_joint_3:
   node_id: 5
   dcf: "prbt_0_1.dcf"
-  dcf_path: "install/prbt_robot/share/prbt_robot/config/prbt"
-  driver: "ros2_canopen::Cia402Driver"
+  dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt_lifecycle"
+  driver: "ros2_canopen::LifecycleMotionControllerDriver"
   package: "canopen_402_driver"
   period: 20
   enable_lazy_load: false
   sdo:
     - {index: 0x2060, sub_index: 2, value: 1} # Request brake test
     - {index: 0x6081, sub_index: 0, value: 1000}
-    - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x6083, sub_index: 0, value: 200}
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
       enabled: true
@@ -143,15 +143,15 @@ prbt_joint_3:
 prbt_joint_4:
   node_id: 6
   dcf: "prbt_0_1.dcf"
-  dcf_path: "install/prbt_robot/share/prbt_robot/config/prbt"
-  driver: "ros2_canopen::Cia402Driver"
+  dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt_lifecycle"
+  driver: "ros2_canopen::LifecycleMotionControllerDriver"
   package: "canopen_402_driver"
   period: 20
   enable_lazy_load: false
   sdo:
     - {index: 0x2060, sub_index: 2, value: 1} # Request brake test
     - {index: 0x6081, sub_index: 0, value: 1000}
-    - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x6083, sub_index: 0, value: 200}
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
       enabled: true
@@ -188,15 +188,15 @@ prbt_joint_4:
 prbt_joint_5:
   node_id: 7
   dcf: "prbt_0_1.dcf"
-  dcf_path: "install/prbt_robot/share/prbt_robot/config/prbt"
-  driver: "ros2_canopen::Cia402Driver"
+  dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt_lifecycle"
+  driver: "ros2_canopen::LifecycleMotionControllerDriver"
   package: "canopen_402_driver"
   period: 20
   enable_lazy_load: false
   sdo:
     - {index: 0x2060, sub_index: 2, value: 1} # Request brake test
     - {index: 0x6081, sub_index: 0, value: 1000}
-    - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x6083, sub_index: 0, value: 200}
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
       enabled: true
@@ -233,15 +233,15 @@ prbt_joint_5:
 prbt_joint_6:
   node_id: 8
   dcf: "prbt_0_1.dcf"
-  dcf_path: "install/prbt_robot/share/prbt_robot/config/prbt"
-  driver: "ros2_canopen::Cia402Driver"
+  dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt_lifecycle"
+  driver: "ros2_canopen::LifecycleMotionControllerDriver"
   package: "canopen_402_driver"
   period: 20
   enable_lazy_load: false
   sdo:
     - {index: 0x2060, sub_index: 2, value: 1} # Request brake test
     - {index: 0x6081, sub_index: 0, value: 1000}
-    - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x6083, sub_index: 0, value: 200}
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
       enabled: true

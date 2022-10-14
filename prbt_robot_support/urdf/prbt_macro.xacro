@@ -23,7 +23,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://prbt_robot/meshes/foot.dae" />
+          <mesh filename="package://prbt_robot_support/meshes/foot.dae" />
         </geometry>
       </visual>
 
@@ -57,7 +57,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://prbt_robot/meshes/link_1.dae" />
+          <mesh filename="package://prbt_robot_support/meshes/link_1.dae" />
         </geometry>
       </visual>
 
@@ -101,7 +101,7 @@
       <visual name="first">
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://prbt_robot/meshes/link_2.dae" />
+          <mesh filename="package://prbt_robot_support/meshes/link_2.dae" />
         </geometry>
       </visual>
 
@@ -140,7 +140,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://prbt_robot/meshes/link_3.dae" />
+          <mesh filename="package://prbt_robot_support/meshes/link_3.dae" />
         </geometry>
       </visual>
 
@@ -184,7 +184,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://prbt_robot/meshes/link_4.dae" />
+          <mesh filename="package://prbt_robot_support/meshes/link_4.dae" />
         </geometry>
       </visual>
 
@@ -223,7 +223,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://prbt_robot/meshes/link_5.dae"/>
+          <mesh filename="package://prbt_robot_support/meshes/link_5.dae"/>
         </geometry>
       </visual>
 
@@ -280,7 +280,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://prbt_robot/meshes/flange.dae"/>
+          <mesh filename="package://prbt_robot_support/meshes/flange.dae"/>
         </geometry>
       </visual>
 

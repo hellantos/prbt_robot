@@ -14,7 +14,7 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     slave_eds_path = os.path.join(
-                    get_package_share_directory("prbt_robot"), "config", "prbt_lifecycle", "prbt_0_1.dcf"
+                    get_package_share_directory("prbt_robot_support"), "config", "prbt_lifecycle", "prbt_0_1.dcf"
                 )
 
     for i in range(1,7):
@@ -36,7 +36,7 @@ def generate_launch_description():
         )
         ld.add_action(slave_node)
     master_bin_path = os.path.join(
-                get_package_share_directory("prbt_robot"),
+                get_package_share_directory("prbt_robot_support"),
                 "config",
                 "prbt_lifecycle",
                 "master.bin",
@@ -52,14 +52,14 @@ def generate_launch_description():
         ),
         launch_arguments={
             "master_config": os.path.join(
-                get_package_share_directory("prbt_robot"),
+                get_package_share_directory("prbt_robot_support"),
                 "config",
                 "prbt_lifecycle",
                 "master.dcf",
             ),
             "master_bin": master_bin_path,
             "bus_config": os.path.join(
-                get_package_share_directory("prbt_robot"),
+                get_package_share_directory("prbt_robot_support"),
                 "config",
                 "prbt_lifecycle",
                 "bus.yml",
@@ -68,7 +68,7 @@ def generate_launch_description():
         }.items(),
     )
 
-    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_robot'), 'urdf',
+    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'urdf',
                                      'prbt.xacro')
     robot_description = Command(
         [
@@ -77,7 +77,7 @@ def generate_launch_description():
             prbt_xacro_file
         ])
 
-    #rviz_file = os.path.join(get_package_share_directory('prbt_robot'), 'rviz',
+    #rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'rviz',
     #                         'visualize_franka.rviz')
 
     robot_state_publisher = Node(
