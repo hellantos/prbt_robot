@@ -1,0 +1,9 @@
+# Default initial positions for prbt's ros2_control fake system
+
+initial_positions:
+  prbt_joint_1: 0
+  prbt_joint_2: 0
+  prbt_joint_3: 0
+  prbt_joint_4: 0
+  prbt_joint_5: 0
+  prbt_joint_6: 0

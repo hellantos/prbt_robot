@@ -1,0 +1,71 @@
+# MoveIt uses this configuration for controller management
+
+
+trajectory_execution:
+  allowed_execution_duration_scaling: 1.2
+  allowed_goal_duration_margin: 0.5
+  allowed_start_tolerance: 0.01
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - arm_controller
+    - prbt_joint_1_controller
+    - prbt_joint_2_controller
+    - prbt_joint_3_controller
+    - prbt_joint_4_controller
+    - prbt_joint_5_controller
+    - prbt_joint_6_controller
+
+  # prbt_joint_1_controller:
+  #   action_ns: switch_on
+  #   type: canopen_ros2_controllers/Cia402DeviceController
+  #   joints: 
+  #     - prbt_joint_1
+
+  # prbt_joint_2_controller:
+  #   action_ns: switch_on
+  #   type: canopen_ros2_controllers/Cia402DeviceController
+  #   joints: 
+  #     - prbt_joint_2
+
+  # prbt_joint_3_controller:
+  #   action_ns: switch_on
+  #   type: canopen_ros2_controllers/Cia402DeviceController
+  #   joints: 
+  #     - prbt_joint_3
+
+  # prbt_joint_4_controller:
+  #   action_ns: switch_on
+  #   type: canopen_ros2_controllers/Cia402DeviceController
+  #   joints: 
+  #     - prbt_joint_4
+
+  # prbt_joint_5_controller:
+  #   action_ns: switch_on
+  #   type: canopen_ros2_controllers/Cia402DeviceController
+  #   joints: 
+  #     - prbt_joint_5
+
+  # prbt_joint_6_controller:
+  #   action_ns: switch_on
+  #   type: canopen_ros2_controllers/Cia402DeviceController
+  #   joints: 
+  #     - prbt_joint_6
+
+  arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: True
+    joints:
+      - prbt_joint_1
+      - prbt_joint_2
+      - prbt_joint_3
+      - prbt_joint_4
+      - prbt_joint_5
+      - prbt_joint_6
+      
+# initial:  # Define initial robot poses per group
+#   - group: arm
+#     pose: Home

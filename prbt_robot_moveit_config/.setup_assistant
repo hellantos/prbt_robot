@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: prbt_robot_support
+    relative_path: urdf/prbt.xacro
+  srdf:
+    relative_path: config/prbt.srdf
+  package_settings:
+    author_name: ""
+    author_email: ""
+    generated_timestamp: 1665501343
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
