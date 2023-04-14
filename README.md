@@ -21,6 +21,15 @@ To run this test do the following:
     ros2 service call prbt_joint_6_controller/init std_srvs/srv Trigger
     ```
 
+    ```bash
+    ros2 service call /prbt_joint_1/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_2/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_3/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_4/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_5/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_6/init std_srvs/srv/Trigger
+    ```
+
 4. Switch to position mode for all joints
     ```
     ros2 service call prbt_joint_1_controller/position_mode std_srvs/srv Trigger
@@ -29,6 +38,15 @@ To run this test do the following:
     ros2 service call prbt_joint_4_controller/position_mode std_srvs/srv Trigger
     ros2 service call prbt_joint_5_controller/position_mode std_srvs/srv Trigger
     ros2 service call prbt_joint_6_controller/position_mode std_srvs/srv Trigger
+    ```
+
+    ```bash
+    ros2 service call /prbt_joint_1/position_mode std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_2/position_mode std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_3/position_mode std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_4/position_mode std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_5/position_mode std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_6/position_mode std_srvs/srv/Trigger
     ```
 
 5. Plan and execute trajectories in rviz or with moveit

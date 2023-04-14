@@ -13,28 +13,6 @@ from launch_ros.actions import Node
 def generate_launch_description():
     ld = LaunchDescription()
 
-    slave_eds_path = os.path.join(
-                    get_package_share_directory("prbt_robot_support"), "config", "prbt", "prbt_0_1.dcf"
-                )
-
-    for i in range(1,7):
-
-        slave_node = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [
-                    os.path.join(
-                        get_package_share_directory("canopen_fake_slaves"), "launch"
-                    ),
-                    "/cia402_slave.launch.py",
-                ]
-            ),
-            launch_arguments={
-                "node_id": "{}".format(i+2), 
-                "node_name": "prbt_slave_{}".format(i),
-                "slave_config": slave_eds_path,
-                }.items(),
-        )
-        ld.add_action(slave_node)
     master_bin_path = os.path.join(
                 get_package_share_directory("prbt_robot_support"),
                 "config",
@@ -64,7 +42,7 @@ def generate_launch_description():
                 "prbt",
                 "bus.yml",
             ),
-            "can_interface_name_name": "vcan0",
+            "can_interface_name": "can0",
         }.items(),
     )
 
