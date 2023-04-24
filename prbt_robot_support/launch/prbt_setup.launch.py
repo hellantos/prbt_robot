@@ -111,7 +111,7 @@ def generate_launch_description():
     )
 
     ld.add_action(device_container)
-    #ld.add_action(robot_state_publisher)
-    #ld.add_action(state_publisher)
-    #ld.add_action(rviz2)
+    # ld.add_action(robot_state_publisher)
+    # ld.add_action(state_publisher)
+    # ld.add_action(rviz2)
     return ld
