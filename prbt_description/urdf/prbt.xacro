@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="prbt">
+    <xacro:arg name="initial_positions_file" default="$(find prbt_description)/config/initial_positions.yaml" />
+    <xacro:arg name="robot_prefix" default="prbt_"/>
+    <xacro:arg name="bus_config" default="$(find prbt_description)/config/prbt/bus.yml"/>
+    <xacro:arg name="master_config" default="$(find prbt_description)/config/prbt/master.dcf"/>
+    <xacro:arg name="can_interface" default="vcan0"/>
+    <xacro:arg name="master_bin" default=""/>
+
+    <!-- Import prbt urdf file -->
+    <xacro:include filename="$(find prbt_description)/urdf/prbt_macro.xacro" />
+    <xacro:include filename="$(find prbt_description)/urdf/prbt.ros2_control.xacro" />
+
+    <!-- TCP Offset -->
+    <xacro:arg name="tcp_offset_xyz" default="0 0 0"/>
+    <xacro:arg name="tcp_offset_rpy" default="0 0 0"/>
+
+    <!-- instantiate the robot -->
+    <xacro:prbt prefix="$(arg robot_prefix)" />
+    <link name="world"/>
+    <joint name="world-base_link-fixed" type="fixed">
+        <parent link="world"/>
+        <child link="$(arg robot_prefix)base_link"/>
+    </joint>
+
+    <!-- TCP -->
+    <joint name="$(arg robot_prefix)fixed_joint_tcp" type="fixed">
+        <origin xyz="$(arg tcp_offset_xyz)" rpy="$(arg tcp_offset_rpy)" />
+        <!-- tcp offset from last link -->
+        <parent link="$(arg robot_prefix)flange"/>
+        <child link="$(arg robot_prefix)tcp"/>
+    </joint>
+    <link name="$(arg robot_prefix)tcp" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="" />
+    <xacro:prbt_ros2_control name="prbt" initial_positions_file="$(arg initial_positions_file)" prefix="$(arg robot_prefix)" bus_config="$(arg bus_config)" master_config="$(arg master_config)" can_interface="$(arg can_interface)" master_bin="$(arg master_bin)"/>
+
+</robot>
