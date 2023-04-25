@@ -12,6 +12,7 @@ prbt_joint_1:
   # dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt"
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
+  scale_pos_from_dev: 0.00001745329252
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -60,6 +61,7 @@ prbt_joint_2:
   # dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt"
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
+  scale_pos_from_dev: 0.00001745329252
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -109,6 +111,7 @@ prbt_joint_3:
   # dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt"
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
+  scale_pos_from_dev: 0.00001745329252
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -157,6 +160,7 @@ prbt_joint_4:
   # dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt"
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
+  scale_pos_from_dev: 0.00001745329252
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -205,6 +209,7 @@ prbt_joint_5:
   # dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt"
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
+  scale_pos_from_dev: 0.00001745329252
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -253,6 +258,7 @@ prbt_joint_6:
   # dcf_path: "install/prbt_robot_support/share/prbt_robot_support/config/prbt"
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
+  scale_pos_from_dev: 0.00001745329252
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
