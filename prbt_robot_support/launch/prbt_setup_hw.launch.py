@@ -48,6 +48,7 @@ def generate_launch_description():
 
     prbt_xacro_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'urdf',
                                      'prbt.xacro')
+
     robot_description = Command(
         [
             PathJoinSubstitution([FindExecutable(name='xacro')]), 
@@ -55,8 +56,8 @@ def generate_launch_description():
             prbt_xacro_file
         ])
 
-    #rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'rviz',
-    #                         'visualize_franka.rviz')
+    rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'launch',
+                            'basic.rviz')
 
     robot_state_publisher = Node(
             package='robot_state_publisher',
@@ -65,10 +66,15 @@ def generate_launch_description():
             output='screen',
             parameters=[{'robot_description': launch_ros.descriptions.ParameterValue(value=robot_description, value_type=str)}],
         )
+    
     rviz2 = Node(package='rviz2',
              executable='rviz2',
-             name='rviz2')
-
+             name='rviz2',
+             output='screen',
+             arguments=['-d', rviz_file],
+             parameters=[
+                {'robot_description': launch_ros.descriptions.ParameterValue(value=robot_description, value_type=str)},
+             ])
 
     state_publisher = Node(
         package="joint_state_publisher",
@@ -89,7 +95,7 @@ def generate_launch_description():
     )
 
     ld.add_action(device_container)
-    #ld.add_action(robot_state_publisher)
-    #ld.add_action(state_publisher)
-    #ld.add_action(rviz2)
+    ld.add_action(robot_state_publisher)
+    ld.add_action(state_publisher)
+    ld.add_action(rviz2)
     return ld
