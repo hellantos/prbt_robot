@@ -4,18 +4,19 @@ from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
 import launch
 from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
-from launch.substitutions import TextSubstitution, LaunchConfiguration
+from launch.substitutions import TextSubstitution, LaunchConfiguration, PathJoinSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
     ld = LaunchDescription()
-
+    default_eds_path = os.path.join(get_package_share_directory('prbt_robot_support'), 'config', 'prbt', 'prbt_0_1.dcf',)
     slave_eds_path = DeclareLaunchArgument(
         'eds_path',
-        default_value=TextSubstitution(text=""),
+        default_value=TextSubstitution(text= default_eds_path),
         description="Path to eds file to be used for the slave.",
     )
     
