@@ -14,7 +14,7 @@ generate_dcf(prbt)
 
 # install launch file
 install(DIRECTORY
-  launch urdf meshes config
+  launch config
   DESTINATION share/${PROJECT_NAME})
 
 

@@ -9,7 +9,7 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>rcpcpp</depend>
+  <depend>rclcpp</depend>
   <depend>urdf</depend>
   <depend>xacro</depend>
   <depend>canopen</depend>

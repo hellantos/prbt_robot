@@ -2,10 +2,11 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="prbt">
     <xacro:arg name="initial_positions_file" default="$(find prbt_description)/config/initial_positions.yaml" />
     <xacro:arg name="robot_prefix" default="prbt_"/>
-    <xacro:arg name="bus_config" default="$(find prbt_description)/config/prbt/bus.yml"/>
-    <xacro:arg name="master_config" default="$(find prbt_description)/config/prbt/master.dcf"/>
+    <xacro:arg name="bus_config" default="$(find prbt_robot_support)/config/prbt/bus.yml"/>
+    <xacro:arg name="master_config" default="$(find prbt_robot_support)/config/prbt/master.dcf"/>
     <xacro:arg name="can_interface" default="vcan0"/>
     <xacro:arg name="master_bin" default=""/>
+    <xacro:arg name="use_ros2_control" default="false"/>
 
     <!-- Import prbt urdf file -->
     <xacro:include filename="$(find prbt_description)/urdf/prbt_macro.xacro" />
@@ -32,8 +33,9 @@
     </joint>
     <link name="$(arg robot_prefix)tcp" />
 
-    <!-- Import control_xacro -->
-    <xacro:include filename="" />
-    <xacro:prbt_ros2_control name="prbt" initial_positions_file="$(arg initial_positions_file)" prefix="$(arg robot_prefix)" bus_config="$(arg bus_config)" master_config="$(arg master_config)" can_interface="$(arg can_interface)" master_bin="$(arg master_bin)"/>
+    <!-- ROS2 Control -->
+    <xacro:if value="$(arg use_ros2_control)">
+        <xacro:prbt_ros2_control name="prbt" initial_positions_file="$(arg initial_positions_file)" prefix="$(arg robot_prefix)" bus_config="$(arg bus_config)" master_config="$(arg master_config)" can_interface="$(arg can_interface)" master_bin="$(arg master_bin)"/>
+    </xacro:if>
 
 </robot>

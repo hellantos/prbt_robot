@@ -17,24 +17,16 @@ def generate_launch_description():
                     get_package_share_directory("prbt_robot_support"), "config", "prbt", "prbt_0_1.dcf"
                 )
 
-    for i in range(1,7):
-
-        slave_node = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [
-                    os.path.join(
-                        get_package_share_directory("canopen_fake_slaves"), "launch"
-                    ),
-                    "/cia402_slave.launch.py",
-                ]
-            ),
-            launch_arguments={
-                "node_id": "{}".format(i+2), 
-                "node_name": "prbt_slave_{}".format(i),
-                "slave_config": slave_eds_path,
-                }.items(),
-        )
-        ld.add_action(slave_node)
+    slave_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(get_package_share_directory("prbt_robot_support"), "launch"), "/prbt_fake_slave.launch.py",
+            ]
+        ),
+        launch_arguments={
+            "eds_path": slave_eds_path,
+        }.items(),
+    )
     master_bin_path = os.path.join(
                 get_package_share_directory("prbt_robot_support"),
                 "config",
@@ -68,7 +60,7 @@ def generate_launch_description():
         }.items(),
     )
 
-    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'urdf',
+    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_description'), 'urdf',
                                      'prbt.xacro')
     robot_description = Command(
         [
@@ -77,8 +69,7 @@ def generate_launch_description():
             prbt_xacro_file
         ])
 
-    #rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'rviz',
-    #                         'visualize_franka.rviz')
+    rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'launch', 'basic.rviz')
 
     robot_state_publisher = Node(
             package='robot_state_publisher',
@@ -87,9 +78,15 @@ def generate_launch_description():
             output='screen',
             parameters=[{'robot_description': launch_ros.descriptions.ParameterValue(value=robot_description, value_type=str)}],
         )
+    
     rviz2 = Node(package='rviz2',
              executable='rviz2',
-             name='rviz2')
+             name='rviz2',
+             output='screen',
+             arguments=['-d', rviz_file],
+             parameters=[
+                {'robot_description': launch_ros.descriptions.ParameterValue(value=robot_description, value_type=str)},
+             ])
 
 
     state_publisher = Node(
@@ -110,8 +107,9 @@ def generate_launch_description():
         }]
     )
 
+    ld.add_action(slave_node)
     ld.add_action(device_container)
-    # ld.add_action(robot_state_publisher)
-    # ld.add_action(state_publisher)
-    # ld.add_action(rviz2)
+    ld.add_action(robot_state_publisher)
+    ld.add_action(state_publisher)
+    ld.add_action(rviz2)
     return ld
