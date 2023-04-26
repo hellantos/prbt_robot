@@ -1,8 +1,9 @@
 import os
 from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, LogInfo
+from launch.actions import DeclareLaunchArgument, LogInfo, RegisterEventHandler
 from launch.actions import OpaqueFunction
+from launch.event_handlers import OnProcessExit, OnProcessStart
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -26,7 +27,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "can_interface",
-            default_value="can0",
+            default_value="vcan0",
             description="Interface name for can",
         )
     )
@@ -91,9 +92,20 @@ def generate_launch_description():
         parameters=[robot_description, controller_config],
     )
 
+    controller_spawner_launch_file = PathJoinSubstitution([FindPackageShare("prbt_robot_support"), "launch", "prbt_controller_spawner.launch.py"])
+    controller_spawner_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [
+                controller_spawner_launch_file, # os.path.join(get_package_share_directory("prbt_robot_support"), "launch"), "/prbt_controller_spawner.launch.py",
+            ]
+        ),
+        launch_arguments={}.items(),
+    )
+
     nodes_list = [
         robot_state_publisher_node,
         controller_manager_node,
+        controller_spawner_node,
     ]
 
     return LaunchDescription(declared_arguments + nodes_list)

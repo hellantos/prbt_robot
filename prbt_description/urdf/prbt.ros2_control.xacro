@@ -17,7 +17,7 @@
         <param name="can_interface">${can_interface}</param>
         <param name="master_bin">"${master_bin}"</param>
       </hardware>
-      <joint name="{prefix}joint_1">
+      <joint name="${prefix}joint_1">
         <param name="node_id">3</param>
         <command_interface name="position"/>
         <state_interface name="position">
