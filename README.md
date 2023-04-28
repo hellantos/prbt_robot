@@ -45,22 +45,22 @@ To run this test do the following:
 
 3. Enable all joints
     ```
-    ros2 service call prbt_joint_1_controller/init std_srvs/srv Trigger
-    ros2 service call prbt_joint_2_controller/init std_srvs/srv Trigger
-    ros2 service call prbt_joint_3_controller/init std_srvs/srv Trigger
-    ros2 service call prbt_joint_4_controller/init std_srvs/srv Trigger
-    ros2 service call prbt_joint_5_controller/init std_srvs/srv Trigger
-    ros2 service call prbt_joint_6_controller/init std_srvs/srv Trigger
+    ros2 service call /prbt_joint_1_controller/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_2_controller/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_3_controller/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_4_controller/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_5_controller/init std_srvs/srv/Trigger
+    ros2 service call /prbt_joint_6_controller/init std_srvs/srv/Trigger
     ```
 
 4. Switch to position mode for all joints
     ```
-    ros2 service call prbt_joint_1_controller/position_mode std_srvs/srv Trigger
-    ros2 service call prbt_joint_2_controller/position_mode std_srvs/srv Trigger
-    ros2 service call prbt_joint_3_controller/position_mode std_srvs/srv Trigger
-    ros2 service call prbt_joint_4_controller/position_mode std_srvs/srv Trigger
-    ros2 service call prbt_joint_5_controller/position_mode std_srvs/srv Trigger
-    ros2 service call prbt_joint_6_controller/position_mode std_srvs/srv Trigger
+    ros2 service call prbt_joint_1/interpolated_position_mode std_srvs/srv/Trigger
+    ros2 service call prbt_joint_2/interpolated_position_mode std_srvs/srv/Trigger
+    ros2 service call prbt_joint_3/interpolated_position_mode std_srvs/srv/Trigger
+    ros2 service call prbt_joint_4/interpolated_position_mode std_srvs/srv/Trigger
+    ros2 service call prbt_joint_5/interpolated_position_mode std_srvs/srv/Trigger
+    ros2 service call prbt_joint_6/interpolated_position_mode std_srvs/srv/Trigger
     ```
 
     ```bash

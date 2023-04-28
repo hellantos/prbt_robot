@@ -1,9 +1,7 @@
 import os
 from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, LogInfo, RegisterEventHandler
-from launch.actions import OpaqueFunction
-from launch.event_handlers import OnProcessExit, OnProcessStart
+from launch.actions import DeclareLaunchArgument
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -96,7 +94,7 @@ def generate_launch_description():
     controller_spawner_node = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [
-                controller_spawner_launch_file, # os.path.join(get_package_share_directory("prbt_robot_support"), "launch"), "/prbt_controller_spawner.launch.py",
+                controller_spawner_launch_file,
             ]
         ),
         launch_arguments={}.items(),

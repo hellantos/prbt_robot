@@ -13,6 +13,7 @@ prbt_joint_1:
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -62,6 +63,7 @@ prbt_joint_2:
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -112,6 +114,7 @@ prbt_joint_3:
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -161,6 +164,7 @@ prbt_joint_4:
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -210,6 +214,7 @@ prbt_joint_5:
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
@@ -259,6 +264,7 @@ prbt_joint_6:
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000

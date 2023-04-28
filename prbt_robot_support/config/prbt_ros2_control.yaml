@@ -23,11 +23,11 @@ controller_manager:
     prbt_joint_6_controller:
       type: canopen_ros2_controllers/Cia402DeviceController
 
-    joint_trajectory_controller:
-      type: joint_trajectory_controller/JointTrajectoryController
+    # joint_trajectory_controller:
+    #   type: joint_trajectory_controller/JointTrajectoryController
 
-    forward_position_controller:
-      type: forward_command_controller/ForwardCommandController
+    # forward_position_controller:
+    #   type: forward_command_controller/ForwardCommandController
     
     arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
@@ -57,44 +57,44 @@ prbt_joint_6_controller:
     joint: prbt_joint_6
 
 
-forward_position_controller:
-  ros__parameters:
-    joints:
-      - prbt_joint_1
-      - prbt_joint_2
-      - prbt_joint_3
-      - prbt_joint_4
-      - prbt_joint_5
-      - prbt_joint_6
-    interface_name: position
+# forward_position_controller:
+#   ros__parameters:
+#     joints:
+#       - prbt_joint_1
+#       - prbt_joint_2
+#       - prbt_joint_3
+#       - prbt_joint_4
+#       - prbt_joint_5
+#       - prbt_joint_6
+#     interface_name: position
 
-joint_trajectory_controller:
-  ros__parameters:
-    joints:
-      - prbt_joint_1
-      - prbt_joint_2
-      - prbt_joint_3
-      - prbt_joint_4
-      - prbt_joint_5
-      - prbt_joint_6
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-      - velocity
-    state_publish_rate: 100.0
-    action_monitor_rate: 20.0
-    allow_partial_joints_goal: false
-    constraints:
-      stopped_velocity_tolerance: 0.2
-      goal_time: 0.6
-      stopped_velocity_tolerance: 0.05
-      prbt_joint_1: {trajectory: 0.157, goal: 0.01}
-      prbt_joint_2: {trajectory: 0.157, goal: 0.01}
-      prbt_joint_3: {trajectory: 0.157, goal: 0.01}
-      prbt_joint_4: {trajectory: 0.157, goal: 0.01}
-      prbt_joint_5: {trajectory: 0.157, goal: 0.01}
-      prbt_joint_6: {trajectory: 0.157, goal: 0.01}
+# joint_trajectory_controller:
+#   ros__parameters:
+#     joints:
+#       - prbt_joint_1
+#       - prbt_joint_2
+#       - prbt_joint_3
+#       - prbt_joint_4
+#       - prbt_joint_5
+#       - prbt_joint_6
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#       - velocity
+#     state_publish_rate: 100.0
+#     action_monitor_rate: 20.0
+#     allow_partial_joints_goal: false
+#     constraints:
+#       stopped_velocity_tolerance: 0.2
+#       goal_time: 0.6
+#       stopped_velocity_tolerance: 0.05
+#       prbt_joint_1: {trajectory: 0.157, goal: 0.01}
+#       prbt_joint_2: {trajectory: 0.157, goal: 0.01}
+#       prbt_joint_3: {trajectory: 0.157, goal: 0.01}
+#       prbt_joint_4: {trajectory: 0.157, goal: 0.01}
+#       prbt_joint_5: {trajectory: 0.157, goal: 0.01}
+#       prbt_joint_6: {trajectory: 0.157, goal: 0.01}
 
 arm_controller:
   ros__parameters:
