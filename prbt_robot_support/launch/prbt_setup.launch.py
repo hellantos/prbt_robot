@@ -64,7 +64,7 @@ def generate_launch_description():
                 "prbt",
                 "bus.yml",
             ),
-            "can_interface_name_name": "vcan0",
+            "can_interface_name": "vcan0",
         }.items(),
     )
 
