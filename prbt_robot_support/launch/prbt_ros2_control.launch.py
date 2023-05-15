@@ -123,12 +123,6 @@ def launch_setup(context, *args, **kwargs):
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
     )
 
-    robot_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["robot_controller", "--controller-manager", "/controller_manager"],
-    )
-
     forward_position_controller = Node(
         package="controller_manager",
         executable="spawner",
@@ -209,7 +203,6 @@ def launch_setup(context, *args, **kwargs):
         control_node,
         robot_state_publisher_node,
         joint_state_broadcaster_spawner,
-        robot_controller_spawner,
         forward_position_controller,
     ]
 
