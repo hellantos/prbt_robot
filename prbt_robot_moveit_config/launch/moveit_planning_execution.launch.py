@@ -100,7 +100,7 @@ def generate_launch_description():
 
     node_list = [
         robot_hw_node,
-        state_publisher,
+        #state_publisher,
         TimerAction(
             period=10.0,
             actions=[virtual_joints]

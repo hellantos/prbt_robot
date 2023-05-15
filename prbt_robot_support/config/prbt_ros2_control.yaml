@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 10  # Hz
+    update_rate: 50  # Hz
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -23,8 +23,8 @@ controller_manager:
     # prbt_joint_6_controller:
     #   type: canopen_ros2_controllers/Cia402RobotController
     
-    prbt_joint_controller:
-      type: canopen_ros2_controllers/Cia402RobotController
+    # prbt_joint_controller:
+    #   type: canopen_ros2_controllers/Cia402RobotController
 
     # joint_trajectory_controller:
     #   type: joint_trajectory_controller/JointTrajectoryController
@@ -59,18 +59,18 @@ controller_manager:
 #   ros__parameters:
 #     joint: prbt_joint_6
 
-prbt_joint_controller:
-  ros__parameters:
-    joints:
-      - prbt_joint_1
-      - prbt_joint_2
-      - prbt_joint_3
-      - prbt_joint_4
-      - prbt_joint_5
-      - prbt_joint_6
+# prbt_joint_controller:
+#   ros__parameters:
+#     joints:
+#       - prbt_joint_1
+#       - prbt_joint_2
+#       - prbt_joint_3
+#       - prbt_joint_4
+#       - prbt_joint_5
+#       - prbt_joint_6
 
-    operation_mode: 7
-    command_poll_freq: 5
+#     operation_mode: 7
+#     command_poll_freq: 10
 
 
 # forward_position_controller:

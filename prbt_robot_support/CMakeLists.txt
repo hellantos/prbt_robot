@@ -14,8 +14,11 @@ generate_dcf(prbt)
 
 # install launch file
 install(DIRECTORY
-  launch config
+  launch
   DESTINATION share/${PROJECT_NAME})
+
+install(FILES config/prbt_ros2_control.yaml
+  DESTINATION share/${PROJECT_NAME}/config)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
