@@ -10,7 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(canopen REQUIRED)
 find_package(lely_core_libraries REQUIRED)
 
-generate_dcf(prbt)
+cogen_dcf(prbt)
 
 # install launch file
 install(DIRECTORY
