@@ -82,7 +82,7 @@ def launch_setup(context, *args, **kwargs):
             name,
             " ",
             "prefix:=",
-            prefix,
+            name,
             " ",
             "bus_config:=",
             bus_config,
@@ -121,42 +121,6 @@ def launch_setup(context, *args, **kwargs):
         package="controller_manager",
         executable="spawner",
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
-    )
-
-    prbt_joint_1_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["prbt_joint_1_controller", "--controller-manager", "/controller_manager"],
-    )
-
-    prbt_joint_2_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["prbt_joint_2_controller", "--controller-manager", "/controller_manager"],
-    )    
-    
-    prbt_joint_3_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["prbt_joint_3_controller", "--controller-manager", "/controller_manager"],
-    )
-
-    prbt_joint_4_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["prbt_joint_4_controller", "--controller-manager", "/controller_manager"],
-    )
-
-    prbt_joint_5_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["prbt_joint_5_controller", "--controller-manager", "/controller_manager"],
-    )    
-    
-    prbt_joint_6_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["prbt_joint_6_controller", "--controller-manager", "/controller_manager"],
     )
 
     forward_position_controller = Node(
@@ -239,12 +203,6 @@ def launch_setup(context, *args, **kwargs):
         control_node,
         robot_state_publisher_node,
         joint_state_broadcaster_spawner,
-        prbt_joint_1_controller_spawner,
-        prbt_joint_2_controller_spawner,
-        prbt_joint_3_controller_spawner,
-        prbt_joint_4_controller_spawner,
-        prbt_joint_5_controller_spawner,
-        prbt_joint_6_controller_spawner,
         forward_position_controller,
     ]
 
