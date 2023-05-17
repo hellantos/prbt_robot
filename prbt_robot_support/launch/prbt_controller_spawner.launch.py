@@ -19,53 +19,11 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
     )
 
-    # prbt_joint_1_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["prbt_joint_1_controller", "--controller-manager", "/controller_manager"],
-    # )
-
-    # prbt_joint_2_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["prbt_joint_2_controller", "--controller-manager", "/controller_manager"],
-    # )    
-    
-    # prbt_joint_3_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["prbt_joint_3_controller", "--controller-manager", "/controller_manager"],
-    # )
-
-    # prbt_joint_4_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["prbt_joint_4_controller", "--controller-manager", "/controller_manager"],
-    # )
-
-    # prbt_joint_5_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["prbt_joint_5_controller", "--controller-manager", "/controller_manager"],
-    # )    
-    
-    # prbt_joint_6_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["prbt_joint_6_controller", "--controller-manager", "/controller_manager"],
-    # )
-
-    # prbt_joint_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["prbt_joint_controller", "--controller-manager", "/controller_manager"],
-    # )
-
-    # forward_position_controller = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["forward_position_controller", "--controller-manager", "/controller_manager"],
-    # )
+    forward_position_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["forward_position_controller", "--controller-manager", "/controller_manager"],
+    )
 
     arm_controller_spawner = Node(
         package="controller_manager",
@@ -77,14 +35,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             joint_state_broadcaster_spawner,
-            # prbt_joint_1_controller_spawner,
-            # prbt_joint_2_controller_spawner,
-            # prbt_joint_3_controller_spawner,
-            # prbt_joint_4_controller_spawner,
-            # prbt_joint_5_controller_spawner,
-            # prbt_joint_6_controller_spawner,
-            # prbt_joint_controller_spawner,
-            # forward_position_controller,
+            forward_position_controller,
             arm_controller_spawner,
         ],
     )

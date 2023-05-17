@@ -27,7 +27,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "can_interface",
-            default_value="vcan0",
+            default_value="can0",
             description="Interface name for can",
         )
     )
