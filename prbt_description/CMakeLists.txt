@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(prbt_robot_support)
+project(prbt_description)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,18 +7,18 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(urdf REQUIRED)
+find_package(xacro REQUIRED)
 find_package(canopen REQUIRED)
 find_package(lely_core_libraries REQUIRED)
 
-generate_dcf(prbt)
-
 # install launch file
 install(DIRECTORY
-  launch
+  launch urdf meshes config
   DESTINATION share/${PROJECT_NAME})
 
-install(FILES config/prbt_ros2_control.yaml
-  DESTINATION share/${PROJECT_NAME}/config)
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

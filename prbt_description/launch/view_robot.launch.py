@@ -13,7 +13,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     ld = LaunchDescription()
 
-    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'urdf',
+    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_description'), 'urdf',
                                      'prbt.xacro')
 
     robot_description = Command(
@@ -23,7 +23,7 @@ def generate_launch_description():
             prbt_xacro_file
         ])
 
-    rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'launch',
+    rviz_file = os.path.join(get_package_share_directory('prbt_description'), 'launch',
                             'basic.rviz')
 
     robot_state_publisher = Node(
@@ -46,6 +46,9 @@ def generate_launch_description():
     joint_state_publisher_node = Node(
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
+        parameters=[
+            {'robot_description': launch_ros.descriptions.ParameterValue(value=robot_description, value_type=str)},
+        ],
     )
 
     ld.add_action(robot_state_publisher)

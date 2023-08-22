@@ -8,7 +8,7 @@
     <xacro:arg name="master_bin" default=""/>
 
     <!-- Import prbt urdf file -->
-    <xacro:include filename="$(find prbt_robot_support)/urdf/prbt_macro.xacro" />
+    <xacro:include filename="$(find prbt_description)/urdf/prbt_macro.xacro" />
 
     <!-- TCP Offset -->
     <xacro:arg name="tcp_offset_xyz" default="0 0 0"/>

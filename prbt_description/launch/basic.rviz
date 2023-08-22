@@ -104,6 +104,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        prbt_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         prbt_tool0:
           Alpha: 1
           Show Axes: false
@@ -141,6 +145,8 @@ Visualization Manager:
           Value: true
         prbt_link_5:
           Value: true
+        prbt_tcp:
+          Value: true
         prbt_tool0:
           Value: true
         world:
@@ -161,6 +167,8 @@ Visualization Manager:
                   prbt_link_4:
                     prbt_link_5:
                       prbt_flange:
+                        prbt_tcp:
+                          {}
                         prbt_tool0:
                           {}
       Update Interval: 0
@@ -168,7 +176,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: prbt_base
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -211,7 +219,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.0131142139434814
+      Distance: 3.7459917068481445
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -226,10 +234,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4853982627391815
+      Pitch: 0.6853982210159302
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.6553983092308044
+      Yaw: 0.3453982472419739
     Saved: ~
 Window Geometry:
   Displays:

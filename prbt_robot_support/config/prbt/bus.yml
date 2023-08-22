@@ -15,11 +15,15 @@ prbt_joint_1:
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
+  switching_state: 2
+  position_mode: 7
+  scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   sdo:
     #- {index: 0x2060, sub_index: 2, value: 1} # Request brake test
-    #- {index: 0x6081, sub_index: 0, value: 1000}
-    #- {index: 0x6083, sub_index: 0, value: 2000}
-    - {index: 0x60C2, sub_index: 1, value: 10} # Interpolation time period at 10 ms matches the period.
+    - {index: 0x6081, sub_index: 0, value: 1000}
+    # - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x60C2, sub_index: 1, value: 15} # Interpolation time period at 10 ms matches the period.
     - {index: 0x6060, sub_index: 0, value: 7} # Make default mode to interpolated position mode.
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
@@ -63,11 +67,15 @@ prbt_joint_2:
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
+  switching_state: 2
+  position_mode: 7
+  scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   sdo:
     #- {index: 0x2060, sub_index: 2, value: 1} # Request brake test
-    #- {index: 0x6081, sub_index: 0, value: 1000}
-    #- {index: 0x6083, sub_index: 0, value: 2000}
-    - {index: 0x60C2, sub_index: 1, value: 10} # Interpolation time period at 10 ms matches the period.
+    - {index: 0x6081, sub_index: 0, value: 1000}
+    # - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x60C2, sub_index: 1, value: 15} # Interpolation time period at 10 ms matches the period.
     - {index: 0x6060, sub_index: 0, value: 7} # Make default mode to interpolated position mode.
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
@@ -112,11 +120,15 @@ prbt_joint_3:
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
+  switching_state: 2
+  position_mode: 7
+  scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   sdo:
     #- {index: 0x2060, sub_index: 2, value: 1} # Request brake test
-    #- {index: 0x6081, sub_index: 0, value: 1000}
-    #- {index: 0x6083, sub_index: 0, value: 2000}
-    - {index: 0x60C2, sub_index: 1, value: 10} # Interpolation time period at 10 ms matches the period.
+    - {index: 0x6081, sub_index: 0, value: 1000}
+    # - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x60C2, sub_index: 1, value: 15} # Interpolation time period at 10 ms matches the period.
     - {index: 0x6060, sub_index: 0, value: 7} # Make default mode to interpolated position mode.
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
@@ -160,11 +172,15 @@ prbt_joint_4:
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
+  switching_state: 2
+  position_mode: 7
+  scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   sdo:
     #- {index: 0x2060, sub_index: 2, value: 1} # Request brake test
-    #- {index: 0x6081, sub_index: 0, value: 1000}
-    #- {index: 0x6083, sub_index: 0, value: 2000}
-    - {index: 0x60C2, sub_index: 1, value: 10} # Interpolation time period at 10 ms matches the period.
+    - {index: 0x6081, sub_index: 0, value: 1000}
+    # - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x60C2, sub_index: 1, value: 15} # Interpolation time period at 10 ms matches the period.
     - {index: 0x6060, sub_index: 0, value: 7} # Make default mode to interpolated position mode.
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
@@ -208,11 +224,15 @@ prbt_joint_5:
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
+  switching_state: 2
+  position_mode: 7
+  scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   sdo:
     #- {index: 0x2060, sub_index: 2, value: 1} # Request brake test
-    #- {index: 0x6081, sub_index: 0, value: 1000}
-    #- {index: 0x6083, sub_index: 0, value: 2000}
-    - {index: 0x60C2, sub_index: 1, value: 10} # Interpolation time period at 10 ms matches the period.
+    - {index: 0x6081, sub_index: 0, value: 1000}
+    # - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x60C2, sub_index: 1, value: 15} # Interpolation time period at 10 ms matches the period.
     - {index: 0x6060, sub_index: 0, value: 7} # Make default mode to interpolated position mode.
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
@@ -256,11 +276,15 @@ prbt_joint_6:
   period: 10
   enable_lazy_load: false
   heartbeat_producer: 1000
+  switching_state: 2
+  position_mode: 7
+  scale_pos_from_dev: 0.00001745329252
+  scale_pos_to_dev: 57295.7795131
   sdo:
     #- {index: 0x2060, sub_index: 2, value: 1} # Request brake test
-    #- {index: 0x6081, sub_index: 0, value: 1000}
-    #- {index: 0x6083, sub_index: 0, value: 2000}
-    - {index: 0x60C2, sub_index: 1, value: 10} # Interpolation time period at 10 ms matches the period.
+    - {index: 0x6081, sub_index: 0, value: 1000}
+    # - {index: 0x6083, sub_index: 0, value: 2000}
+    - {index: 0x60C2, sub_index: 1, value: 15} # Interpolation time period at 10 ms matches the period.
     - {index: 0x6060, sub_index: 0, value: 7} # Make default mode to interpolated position mode.
   tpdo: # TPDO needed statusword, actual velocity, actual position, mode of operation
     1:
@@ -288,11 +312,11 @@ prbt_joint_6:
       mapping:
       - {index: 0x6040, sub_index: 0} # controlword
       - {index: 0x6060, sub_index: 0} # mode of operation
-      - {index: 0x60C1, sub_index: 1} # interpolated position data
     2:
       enabled: true
       cob_id: "auto"
       mapping:
       - {index: 0x607A, sub_index: 0} # target position
+      - {index: 0x60C1, sub_index: 1} # interpolated position data
 # 
 # 

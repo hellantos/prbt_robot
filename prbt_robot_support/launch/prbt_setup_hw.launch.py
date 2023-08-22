@@ -46,7 +46,7 @@ def generate_launch_description():
         }.items(),
     )
 
-    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'urdf',
+    prbt_xacro_file = os.path.join(get_package_share_directory('prbt_description'), 'urdf',
                                      'prbt.xacro')
 
     robot_description = Command(
@@ -56,8 +56,7 @@ def generate_launch_description():
             prbt_xacro_file
         ])
 
-    rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'launch',
-                            'basic.rviz')
+    rviz_file = os.path.join(get_package_share_directory('prbt_robot_support'), 'launch', 'basic.rviz')
 
     robot_state_publisher = Node(
             package='robot_state_publisher',
