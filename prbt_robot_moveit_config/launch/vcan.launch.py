@@ -47,74 +47,11 @@ def generate_launch_description():
 
     use_rviz_arg = DeclareBooleanLaunchArg("use_rviz", default_value=True)
 
-    slave_node_1 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(slave_launch),
-        launch_arguments={
-            "node_id": "3",
-            "node_name": "prbt_node_1",
-            "slave_config": slave_config,
-        }.items(),
-        condition=IfCondition(LaunchConfiguration("fake_drives")),
-    )
-    slave_node_2 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(slave_launch),
-        launch_arguments={
-            "node_id": "4",
-            "node_name": "prbt_node_2",
-            "slave_config": slave_config,
-        }.items(),
-        condition=IfCondition(LaunchConfiguration("fake_drives")),
-    )
-    slave_node_3 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(slave_launch),
-        launch_arguments={
-            "node_id": "5",
-            "node_name": "prbt_node_3",
-            "slave_config": slave_config,
-        }.items(),
-        condition=IfCondition(LaunchConfiguration("fake_drives")),
-    )
-    slave_node_4 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(slave_launch),
-        launch_arguments={
-            "node_id": "6",
-            "node_name": "prbt_node_4",
-            "slave_config": slave_config,
-        }.items(),
-        condition=IfCondition(LaunchConfiguration("fake_drives")),
-    )
-    slave_node_5 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(slave_launch),
-        launch_arguments={
-            "node_id": "7",
-            "node_name": "prbt_node_5",
-            "slave_config": slave_config,
-        }.items(),
-        condition=IfCondition(LaunchConfiguration("fake_drives")),
-    )
-    slave_node_6 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(slave_launch),
-        launch_arguments={
-            "node_id": "8",
-            "node_name": "prbt_node_6",
-            "slave_config": slave_config,
-        }.items(),
-        condition=IfCondition(LaunchConfiguration("fake_drives")),
-    )
-
     virtual_joints = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             str(
                 moveit_config.package_path / "launch/static_virtual_joint_tfs.launch.py"
             )
-        ),
-    )
-
-    # Given the published joint states, publish tf for the robot links
-
-    robot_state_publisher = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            str(moveit_config.package_path / "launch/rsp.launch.py")
         ),
     )
 
@@ -133,59 +70,13 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration("use_rviz")),
     )
 
-    # If database loading was enabled, start mongodb as well
-    db = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            str(moveit_config.package_path / "launch/warehouse_db.launch.py")
-        ),
-        condition=IfCondition(LaunchConfiguration("db")),
-    )
-
-    controller_manager = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[
-            moveit_config.robot_description,
-            str(moveit_config.package_path / "config/ros2_controllers.yaml"),
-        ],
-    )
-
-    spawn_controllers = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            str(moveit_config.package_path / "launch/spawn_controllers.launch.py")
-        ),
-    )
-
     nodes_to_start = [
         fake_drives_arg,
         debug_arg,
         db_arg,
         use_rviz_arg,
-        slave_node_1,
-        slave_node_2,
-        slave_node_3,
-        slave_node_4,
-        slave_node_5,
-        slave_node_6,
-        TimerAction(
-            period=2.0,
-            actions=[
-                controller_manager,
-            ],
-        ),
-        TimerAction(
-            period=4.0,
-            actions=[
-                virtual_joints,
-                robot_state_publisher,
-                move_group,
-                db,
-            ]
-        ),
-        TimerAction(
-            period=6.0,
-            actions=[spawn_controllers]
-        ),
+        virtual_joints,
+        move_group,
         TimerAction(
             period=8.0,
             actions=[rviz]

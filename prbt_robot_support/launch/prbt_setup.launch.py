@@ -56,7 +56,7 @@ def generate_launch_description():
                 "prbt",
                 "bus.yml",
             ),
-            "can_interface_name_name": "vcan0",
+            "can_interface_name": "vcan0",
         }.items(),
     )
 
@@ -106,10 +106,15 @@ def generate_launch_description():
             "rate": 10
         }]
     )
+    
+    rviz2_delayed = launch.actions.TimerAction(
+        period=2.0,
+        actions=[rviz2]
+    )
 
     ld.add_action(slave_node)
     ld.add_action(device_container)
     ld.add_action(robot_state_publisher)
     ld.add_action(state_publisher)
-    ld.add_action(rviz2)
+    ld.add_action(rviz2_delayed)
     return ld

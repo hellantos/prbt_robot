@@ -23,7 +23,7 @@
         prefix="$(arg robot_prefix)"
         bus_config="$(arg bus_config)"
         master_config="$(arg master_config)"
-        can_interface_name="$(arg can_interface)"
+        can_interface_name="$(arg can_interface_name)"
         master_bin="$(arg master_bin)" />
 
 </robot>
